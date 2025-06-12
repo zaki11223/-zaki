@@ -1,0 +1,178 @@
+# Creating a full HTML structure with combined and corrected components from the user's shared code
+html_code = """
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>موقعي الأول</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    header, footer {
+      background-color: #4CAF50;
+      color: white;
+      padding: 20px;
+      width: 100%;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #2c3e50;
+      display: flex;
+      justify-content: space-around;
+      padding: 15px 0;
+      width: 100%;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      padding: 10px 20px;
+    }
+
+    nav a:hover {
+      background-color: #34495e;
+      border-radius: 5px;
+    }
+
+    section {
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      width: 90%;
+      max-width: 500px;
+      margin: 20px 0;
+    }
+
+    input, select, button {
+      padding: 10px;
+      margin: 10px 5px;
+      border-radius: 10px;
+      border: none;
+      font-size: 16px;
+      width: calc(50% - 20px);
+    }
+
+    button {
+      background-color: #00c3ff;
+      color: white;
+      cursor: pointer;
+      width: 100%;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #008bbd;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #ffff99;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>مرحباً! أنا زكرياء</h1>
+  <p>أتعلم البرمجة وأصنع موقعي الأول</p>
+</header>
+
+<nav>
+  <a href="#home">🏠 الرئيسية</a>
+  <a href="#cost">💸 حساب التكاليف</a>
+  <a href="#convert">💱 تحويل المال</a>
+  <a href="#country">🌐 تغيير الدولة</a>
+</nav>
+
+<section id="convert">
+  <h2>محول العملات (دولار ➜ يورو)</h2>
+  <input type="number" id="usd" placeholder="أدخل المبلغ بالدولار">
+  <button onclick="convert()">تحويل</button>
+  <div class="result" id="result"></div>
+</section>
+
+<section id="cost">
+  <h2>💼 حاسبة تكاليف السفر</h2>
+  <label for="days">📅 عدد الأيام :</label>
+  <input type="number" id="days" placeholder="أدخل عدد الأيام">
+  <label for="type">🧳 اختر النمط :</label>
+  <select id="type">
+    <option value="100">اقتصادي</option>
+    <option value="200">متوسط</option>
+    <option value="350">فاخر</option>
+  </select>
+  <button onclick="calculate()">احسب التكلفة</button>
+  <div class="result" id="travelResult"></div>
+</section>
+
+<footer>
+  <p>تواصل معي عبر البريد: <a href="mailto:zakariakheloui63@email.com">zakariakheloui63@email.com</a></p>
+</footer>
+
+<script>
+  function convert() {
+    const usd = parseFloat(document.getElementById("usd").value);
+    const rate = 0.92;
+    if (isNaN(usd) || usd <= 0) {
+      document.getElementById("result").innerText = "يرجى إدخال مبلغ صحيح.";
+      return;
+    }
+    const eur = usd * rate;
+    document.getElementById("result").innerText = usd + " دولار = " + eur.toFixed(2) + " يورو";
+  }
+
+  function calculate() {
+    const days = parseInt(document.getElementById("days").value);
+    const type = parseInt(document.getElementById("type").value);
+    if (!days || days <= 0) {
+      document.getElementById("travelResult").innerText = "يرجى إدخال عدد أيام صحيح.";
+      return;
+    }
+    const total = days * type;
+    document.getElementById("travelResult").innerText = `💰 التكلفة الإجمالية: ${total} دولار`;
+  }
+</script>
+
+</body>
+</html>
+"""
+
+# Save the result to a file for user to download if needed
+file_path = "/mnt/data/full_website_code.html"
+with open(file_path, "w", encoding="utf-8") as f:
+    f.write(html_code)
+
+file_path
+# Creating a full HTML structure with combined and corrected components from the user's shared code
+html_code = """
+# فتح الملف الحالي واستبدال عنوان الموقع باسم "Zakaria 2.6"
+file_path = "/mnt/data/full_website_code.html"
+
+# نقرأ محتوى الملف
+with open(file_path, "r", encoding="utf-8") as file:
+    content = file.read()
+
+# استبدال كل العناوين الرئيسية للموقع بالاسم الجديد
+updated_content = content.replace("<title>", "<title>Zakaria 2.6 - ")
+
+# حفظ الملف بالتغييرات الجديدة
+with open(file_path, "w", encoding="utf-8") as file:
+    file.write(updated_content)
+
+file_path
